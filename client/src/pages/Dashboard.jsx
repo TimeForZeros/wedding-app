@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Dashboard extends React.Component {
   state = {};
   render() {
-    return <div>This is going to be the dashboard</div>;
+    return <div>Dashboard</div>;
   }
 }
 export default Dashboard;

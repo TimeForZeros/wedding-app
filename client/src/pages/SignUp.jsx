@@ -5,7 +5,7 @@ class SignUp extends React.Component {
   state = {};
 
   render() {
-    return <div>This the Signup Page</div>;
+    return <div>Sign Up</div>;
   }
 }
 
