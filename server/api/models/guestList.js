@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const guestListSchema = new mongoose.Schema({
+  name: { type: String },
   guests: [
     {
       name: { type: String, required: true },

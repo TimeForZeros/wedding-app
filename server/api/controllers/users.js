@@ -9,8 +9,22 @@ const create = async (req, res) => {
   const guest = await Guest.create(req.body);
   res.status(201).json(guest);
 };
+const deleteOne = async (req, res) => {
+  const guest = req.params.id;
+  await Guest.deleteOne(guest)
+    .then(res.send('DELETED ONE SUCCESSFULLY'))
+    .catch(console.error(res.status(400)));
+};
+
+const deleteAll = async (req, res) => {
+  await Guest.deleteMany({})
+    .then(res.send('DELETED ALLL'))
+    .catch(res.status(400));
+};
 
 module.exports = {
   get,
   create,
+  deleteAll,
+  deleteOne,
 };
