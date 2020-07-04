@@ -4,13 +4,13 @@ import Dashboard from './pages/Dashboard';
 import SignUp from './pages/SignUp';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <Dashboard />
       <SignUp />
     </div>
   );
-}
+};
 
 export default App;

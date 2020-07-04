@@ -11,7 +11,7 @@ const guestSchema = new Schema(
   { autoIndex: false },
   {
     timestamp: true,
-  }
+  },
 );
 
 module.exports = mongoose.model('Guest', guestSchema);
