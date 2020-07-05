@@ -12,6 +12,6 @@ router.get('/', (req, res) => {
 router.get('/list', guestListController.get);
 router.post('/list/create', guestListController.create);
 router.delete('/list/deleteOne/:id', guestListController.deleteOne);
-router.delete('./list/deleteAll', guestListController.deleteAll);
+router.delete('/list/deleteAll', guestListController.deleteAll);
 
 module.exports = router;

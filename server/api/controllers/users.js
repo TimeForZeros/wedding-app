@@ -11,7 +11,7 @@ const create = async (req, res) => {
 };
 const deleteOne = async (req, res) => {
   const guest = req.params.id;
-  await Guest.deleteOne(guest)
+  await Guest.deleteOne({ _id: guest })
     .then(res.send('DELETED ONE SUCCESSFULLY'))
     .catch(console.error(res.status(400)));
 };
