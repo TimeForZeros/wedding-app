@@ -9,22 +9,23 @@ const create = async (req, res) => {
   res.status(201).json(guestList);
 };
 const updateOne = async (req, res) => {
-  const guestListId = req.params.id;
-  await GuestList.updateOne(guestListId, req.body);
+  const { guestList } = req.params;
+  await GuestList.updateOne(guestList, req.body);
   res.status(200);
 };
 const updateAll = async (req, res) => {
   await GuestList.updateMany({}, req.body).then(res.status(200));
 };
 const deleteOne = async (req, res) => {
-  const guestListId = req.params.id;
-  await GuestList.deleteOne(guestListId)
+  const guestList = req.params.id;
+  console.log(guestList);
+  await GuestList.deleteOne({ _id: guestList })
     .then(res.send('DELETED ONE SUCCESSFULLY'))
     .catch(console.error(res.status(400)));
 };
 const deleteAll = async (req, res) => {
   await GuestList.deleteMany({})
-    .then(res.send('DELETED ALL ISTS'))
+    .then(res.send('DELETED ALL LISTS'))
     .catch(res.status(400));
 };
 

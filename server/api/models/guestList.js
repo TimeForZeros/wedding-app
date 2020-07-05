@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const guestListSchema = new mongoose.Schema({
-  name: { type: String },
+  name: { type: String, required: true },
   guests: [
     {
       name: { type: String, required: true },
@@ -9,7 +9,6 @@ const guestListSchema = new mongoose.Schema({
     },
   ],
   notes: { type: String },
-  timestamp: true,
 });
 
 module.exports = mongoose.model('GuestList', guestListSchema);

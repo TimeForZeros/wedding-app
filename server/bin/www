@@ -77,11 +77,11 @@ const onListening = () => {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   mongoose
     .connect(
-      `mongodb://${config.database.connection.host}/${config.database.dbName}`
+      `mongodb://${config.database.connection.host}/${config.database.dbName}`,
     )
     .then(() => {
       console.log(
-        `Conneted to mongoDB at port ${config.database.connection.port}`
+        `Conneted to mongoDB at port ${config.database.connection.port}`,
       );
     });
   debug(`Listening on ${bind}`);
