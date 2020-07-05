@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -12,7 +12,11 @@ class NavbarComp extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Victor and Kendi's Wedding App</Navbar.Brand>
+        <Link to="/hello">
+          <Navbar.Brand href="#home">
+            Victor and Kendi's Wedding App
+          </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -21,14 +25,21 @@ class NavbarComp extends React.Component {
             <NavDropdown title="Guest" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Add Guest</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Edit Guest</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Delete Guest</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Delete Guest
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">All Guests</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Guest List" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"> Create List</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">
+                {' '}
+                Create List
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Edit List</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Delete List</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Delete List
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">All Lists</NavDropdown.Item>
             </NavDropdown>
