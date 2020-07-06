@@ -12,7 +12,7 @@ class NavbarComp extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Link to="/hello">
+        <Link to="/home">
           <Navbar.Brand href="#home">
             Victor and Kendi's Wedding App
           </Navbar.Brand>
@@ -21,15 +21,31 @@ class NavbarComp extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#home">Dashboard</Nav.Link>
-            <Nav.Link href="#link">Guest List</Nav.Link>
+            <Link to="/user/guest">
+              <Nav.Link href="#link">Guests</Nav.Link>
+            </Link>
             <NavDropdown title="Guest" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Add Guest</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Edit Guest</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Delete Guest
-              </NavDropdown.Item>
+              <Link>
+                <NavDropdown.Item href="#action/3.1">
+                  Add Guest
+                </NavDropdown.Item>
+              </Link>
+              <Link to="/user/guest/update">
+                <NavDropdown.Item href="#action/3.3">
+                  Edit Guest
+                </NavDropdown.Item>
+              </Link>
+              <Link to="/user/guest/delete">
+                <NavDropdown.Item href="#action/3.3">
+                  Delete Guest
+                </NavDropdown.Item>
+              </Link>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">All Guests</NavDropdown.Item>
+              <Link to="user/guest">
+                <NavDropdown.Item href="#action/3.4">
+                  All Guests
+                </NavDropdown.Item>
+              </Link>
             </NavDropdown>
             <NavDropdown title="Guest List" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">

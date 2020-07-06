@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import NavbarComp from './components/Navbar';
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
 
 import './App.css';
 import ImageCarousel from './components/Carousel';
@@ -16,15 +17,17 @@ const App = () => {
     <>
       <NavbarComp />
       <Switch>
-        <Route path="/hello">
+        <Route path="/home">
           <ImageCarousel />
         </Route>
+      <Route path="/user/guest">
         <Card>
           <Card.Body>
-            <Card.Header> Guest List</Card.Header>
+            <Card.Header>Guest List</Card.Header>
             <List />
           </Card.Body>
         </Card>
+        </Route>
         <Dashboard />
         <SignUp />
         <Login />
