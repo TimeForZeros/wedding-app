@@ -5,7 +5,6 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import NavbarComp from './components/Navbar';
 import Card from 'react-bootstrap/Card';
-import axios from 'axios';
 
 import './App.css';
 import ImageCarousel from './components/Carousel';
