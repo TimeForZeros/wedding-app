@@ -2,7 +2,7 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import axios from 'axios';
 
-axios.get('/user/guest').then((res) => {
+axios.get('/users/guest').then((res) => {
   console.log('get worked!');
   console.log(res);
 })

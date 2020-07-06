@@ -9,6 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "dev": "concurrently \"cd client && npm start\" \"cd server && nodemon\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
