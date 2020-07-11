@@ -1,6 +1,7 @@
 const Guest = require('../models/user');
 
 const get = async (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
   const guests = await Guest.find();
   res.status(200).json(guests);
 };
