@@ -9,10 +9,9 @@ class List extends React.Component {
       .get('http://localhost:5000/users/guest',{
         method: 'GET',
         headers: { 'content-type': 'application/json' }})
-      .then((response) => response.json)
+      .then((res) => res.data)
       .then((guests) => {
         console.log('fetch complete');
-        console.log(guests);
         this.setState({ guests });
       })
       .catch((err) => console.log(err));
@@ -21,14 +20,13 @@ class List extends React.Component {
   render() {
     return (
       <ListGroup>
-        <div>
           {this.state.guests.map((guest) => {
-            console.log(guest);
-            return <ListGroup.Item>{guest}</ListGroup.Item>;
+            if (!guest.going) {
+              return <ListGroup.Item>{guest.name}</ListGroup.Item>;
+            }
           })}
-        </div>
-        {/* <ListGroup.Item>Luna</ListGroup.Item>
-      <ListGroup.Item>Usagi</ListGroup.Item>
+        {/* <ListGroup.Item>Luna</ListGroup.Item> */}
+      {/* <ListGroup.Item>Usagi</ListGroup.Item>
       <ListGroup.Item>Sailor Senshi</ListGroup.Item>
       <ListGroup.Item>Tuxedo Kame</ListGroup.Item>
       <ListGroup.Item>Yaas Queen Beryl</ListGroup.Item> */}
