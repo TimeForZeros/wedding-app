@@ -21,7 +21,7 @@ class List extends React.Component {
     return (
       <ListGroup>
           {this.state.guests.map((guest) => {
-            if (!guest.going) {
+            if (guest.going) {
               return <ListGroup.Item>{guest.name}</ListGroup.Item>;
             }
           })}
