@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 
 import './App.css';
 import ImageCarousel from './components/Carousel';
+import { FormSignup, FormGuest } from './components/Form.jsx';
 import List from './components/List';
 import { Switch, Route } from 'react-router-dom';
 
@@ -19,13 +20,25 @@ const App = () => {
         <Route path="/home">
           <ImageCarousel />
         </Route>
-      <Route path="/user/guest">
-        <Card>
-          <Card.Body>
-            <Card.Header>Guest List</Card.Header>
-            <List />
-          </Card.Body>
-        </Card>
+        <Route path="/user/guest">
+          <Card>
+            <Card.Body>
+              <Card.Header>Guest List</Card.Header>
+              <List />
+            </Card.Body>
+          </Card>
+        </Route>
+        <Route path="/user/signup">
+          {/* <Card>
+            <Card.Body>
+              <FormSignup />
+            </Card.Body>
+          </Card> */}
+          <Card>
+            <Card.Body>
+              <FormGuest />
+            </Card.Body>
+          </Card>
         </Route>
         <Dashboard />
         <SignUp />
