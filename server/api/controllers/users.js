@@ -7,8 +7,8 @@ const get = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const guest = await Guest.create(req.body);
-  res.status(201).json(guest);
+  await Guest.create(req.body.data);
+  res.status(201);
 };
 const deleteOne = async (req, res) => {
   const guest = req.params.id;

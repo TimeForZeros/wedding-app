@@ -3,8 +3,9 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 class FormSignup extends React.Component {
-  super = {
-    data: {},
+  state = {
+    name: '',
+    email: '',
   };
   render() {
     return (
@@ -33,21 +34,28 @@ class FormSignup extends React.Component {
 }
 
 class FormGuest extends React.Component {
-  super = {
-    data: {},
-  };
+  constructor() {
+    super();
+    this.state = { name: '', email: '', going: true };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ name: event.target.value });
+  }
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(JSON.stringify(data));
+    const data = this.state;
 
-    axios.post('/users/guest/add', {
-      method: 'POST',
-      data: data,
-    }).then((res) => {
-      console.log(res.status).catch((err) => console.log(err));
-    });
+    axios
+      .post('/users/guest/add', {
+        data: data,
+      })
+      .then((res) => {
+        console.log(res.status)
+      }).catch((err) => console.log(err));;
   }
   render() {
     return (
@@ -58,12 +66,16 @@ class FormGuest extends React.Component {
             type="string"
             name="name"
             placeholder="Tupac Shakur"
+            value={this.state.name}
+            onChange={(e) => this.setState({ name: e.target.value })}
           />
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             name="email"
             placeholder="name@example.com"
+            value={this.state.email}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
