@@ -46,8 +46,7 @@ class FormGuest extends React.Component {
       method: 'POST',
       data: data,
     }).then((res) => {
-     console.log(res.status).catch((err) => console.log(err));
-
+      console.log(res.status).catch((err) => console.log(err));
     });
   }
   render() {

@@ -13,6 +13,18 @@
       ],
       "program": "${workspaceFolder}/server/bin/www",
       "env": {"NODE_ENV": "default"}
+    },
+    {
+      "type": "node",
+      "name": "Launch Dev",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script", "dev"
+      ],
+      "env": {"NODE_ENV": "default"}
     }
+
   ]
 }
