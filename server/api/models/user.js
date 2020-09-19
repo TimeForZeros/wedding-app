@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 
 const guestSchema = new Schema(
   {
-    // name: { type: String, max: 160, required: true },
-    name: { type: String, max: 160 },
+    name: { type: String, max: 160, required: true },
+    // name: { type: String, max: 160 },
     going: { type: Boolean, default: false },
-    dietaryRestriction: [String],
+    // dietaryRestriction: [String],
   },
   { autoIndex: false },
   {

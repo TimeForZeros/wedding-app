@@ -8,11 +8,9 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Server",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/server/bin/www",
-      "env": {"NODE_ENV": "default"}
+      "env": { "NODE_ENV": "default" }
     },
     {
       "type": "node",
@@ -20,11 +18,8 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script", "dev"
-      ],
-      "env": {"NODE_ENV": "default"}
+      "runtimeArgs": ["run-script", "dev"],
+      "env": { "NODE_ENV": "default" }
     }
-
   ]
 }

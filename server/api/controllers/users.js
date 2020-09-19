@@ -2,25 +2,41 @@ const Guest = require('../models/user');
 
 const get = async (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
-  const guests = await Guest.find();
-  res.status(200).json(guests);
+  try {
+    const guests = await Guest.find();
+    res.status(200).json(guests);
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+  }
 };
 
 const create = async (req, res) => {
-  await Guest.create(req.body.data);
-  res.status(201);
+  try {
+    await Guest.create(req.body);
+    return res.status(201);
+  } catch (err) {
+    console.log(err);
+    return res.status(500);
+  }
 };
 const deleteOne = async (req, res) => {
   const guest = req.params.id;
-  await Guest.deleteOne({ _id: guest })
-    .then(res.send('DELETED ONE SUCCESSFULLY'))
-    .catch(console.error(res.status(400)));
+  try {
+    await Guest.deleteOne({ _id: guest });
+    res.send('DELETED ONE SUCCESSFULLY');
+  } catch (err) {
+    console.error(res.status(400));
+  }
 };
 
 const deleteAll = async (req, res) => {
-  await Guest.deleteMany({})
-    .then(res.send('DELETED ALLL'))
-    .catch(res.status(400));
+  try {
+    await Guest.deleteMany({});
+    return res.send('DELETED ALL');
+  } catch (err) {
+    return res.status(400);
+  }
 };
 
 module.exports = {
