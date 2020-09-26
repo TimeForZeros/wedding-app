@@ -13,8 +13,9 @@ const get = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    await Guest.create(req.body);
-    return res.status(201);
+    const test = await Guest.create(req.body);
+    res.status(201);
+    return res.json(test);
   } catch (err) {
     console.log(err);
     return res.status(500);
