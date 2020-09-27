@@ -14,13 +14,14 @@ const get = async (req, res) => {
 const create = async (req, res) => {
   try {
     const test = await Guest.create(req.body);
-    res.status(201);
-    return res.json(test);
+    return res.status(201).json(test);
   } catch (err) {
     console.log(err);
-    return res.status(500);
+    res.status(500);
+    return res.redirect('/home');
   }
 };
+
 const deleteOne = async (req, res) => {
   const guest = req.params.id;
   try {
@@ -34,7 +35,7 @@ const deleteOne = async (req, res) => {
 const deleteAll = async (req, res) => {
   try {
     await Guest.deleteMany({});
-    return res.send('DELETED ALL');
+    return res.status(200).send('DELETED ALL');
   } catch (err) {
     return res.status(400);
   }

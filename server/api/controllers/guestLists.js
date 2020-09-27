@@ -18,10 +18,12 @@ const updateAll = async (req, res) => {
 };
 const deleteOne = async (req, res) => {
   const guestList = req.params.id;
-  console.log(guestList);
-  await GuestList.deleteOne({ _id: guestList })
-    .then(res.send('DELETED ONE SUCCESSFULLY'))
-    .catch(console.error(res.status(400)));
+  try {
+    await GuestList.deleteOne({ _id: guestList });
+    res.send('DELETED ONE SUCCESSFULLY');
+  } catch (err) {
+    console.error(res.status(400));
+  }
 };
 const deleteAll = async (req, res) => {
   await GuestList.deleteMany({})
