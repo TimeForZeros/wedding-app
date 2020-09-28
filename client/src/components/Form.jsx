@@ -41,22 +41,22 @@ class FormGuest extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ name: event.target.value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
     const data = this.state;
-
-    axios
-      .post('/users/guest/add', {
+    try {
+      const res = await axios.post('/users/guest/add', {
         data: data,
-      })
-      .then((res) => {
-        console.log(res.status)
-      }).catch((err) => console.log(err));;
-  }
+      });
+      console.log(res.status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>

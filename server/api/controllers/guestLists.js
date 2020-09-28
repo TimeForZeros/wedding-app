@@ -26,9 +26,13 @@ const deleteOne = async (req, res) => {
   }
 };
 const deleteAll = async (req, res) => {
-  await GuestList.deleteMany({})
-    .then(res.send('DELETED ALL LISTS'))
-    .catch(res.status(400));
+  try {
+    await GuestList.deleteMany({});
+    res.send('DELETED ALL LISTS');
+  } catch (err) {
+    console.error(err);
+    res.status(400);
+  }
 };
 
 module.exports = {

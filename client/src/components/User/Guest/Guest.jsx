@@ -29,7 +29,7 @@ class Guest extends React.Component {
   state = {};
   render = () => (
     <Switch>
-      <Route path="/user/guest/list">
+      <Route path="/user/guest/all">
         <GuestList />
       </Route>
       <Route path="/user/guest/add">
