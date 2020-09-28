@@ -2,8 +2,13 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import axios from 'axios';
 
+const isGoing = (going) => (going ? 'success' : 'danger');
 class List extends React.Component {
-  state = { guests: [] };
+  constructor(props) {
+    super(props);
+    this.state = { guests: [] };
+  }
+
   async componentDidMount() {
     try {
       const res = await axios.get('http://localhost:5000/users/guest', {
@@ -15,15 +20,20 @@ class List extends React.Component {
       console.error(error);
     }
   }
-  getList = async () => axios.get('/users/guest');
+
+  getList() {
+    this.axios.get('/users/guest');
+  }
+
   render() {
+    const { guests } = this.state;
     return (
       <ListGroup>
-        {this.state.guests.map((guest) => {
-          if (guest.going) {
-            return <ListGroup.Item eventKey={guest.id}>{guest.name}</ListGroup.Item>;
-          }
-        })}
+        {guests.map((guest) => (
+          <ListGroup.Item variant={isGoing(guest.going)} eventKey={guest.id}>
+            {guest.name}
+          </ListGroup.Item>
+        ))}
         {/* <ListGroup.Item>Luna</ListGroup.Item> */}
         {/* <ListGroup.Item>Usagi</ListGroup.Item>
       <ListGroup.Item>Sailor Senshi</ListGroup.Item>

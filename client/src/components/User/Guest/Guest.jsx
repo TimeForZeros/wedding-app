@@ -1,12 +1,8 @@
 import React from 'react';
-import { Link, Router } from 'react-router-dom';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import { Switch, Route } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import List from './List';
-import { FormGuest, FormSignup } from '../../Form';
-import { Switch, Route } from 'react-router-dom';
+import FormSignup from '../../FormSignup';
 
 const GuestList = () => (
   <Card>
@@ -21,21 +17,26 @@ const AddGuest = () => (
     <Card.Body>
       <Card.Header>Add Guest</Card.Header>
       <FormSignup />
-      <FormGuest />
     </Card.Body>
   </Card>
 );
 class Guest extends React.Component {
-  state = {};
-  render = () => (
-    <Switch>
-      <Route path="/user/guest/all">
-        <GuestList />
-      </Route>
-      <Route path="/user/guest/add">
-        <AddGuest />
-      </Route>
-    </Switch>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Switch>
+        <Route path="/user/guest/all">
+          <GuestList />
+        </Route>
+        <Route path="/user/guest/add">
+          <AddGuest />
+        </Route>
+      </Switch>
+    );
+  }
 }
 export default Guest;

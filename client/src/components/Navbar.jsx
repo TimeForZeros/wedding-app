@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-const guestDropdown = () => (
+const guestDropdown = (
   <NavDropdown title="Guest" id="basic-nav-dropdown">
     <NavDropdown.Item href="/user/guest/add">Add Guest</NavDropdown.Item>
     <NavDropdown.Item href="/user/guest/udate">Edit Guest</NavDropdown.Item>
@@ -16,7 +16,7 @@ const guestDropdown = () => (
   </NavDropdown>
 );
 
-const guestListDropdown = () => (
+const guestListDropdown = (
   <NavDropdown title="Guest List" id="basic-nav-dropdown">
     <NavDropdown.Item> Create List</NavDropdown.Item>
     <NavDropdown.Item>Edit List</NavDropdown.Item>
@@ -26,13 +26,13 @@ const guestListDropdown = () => (
   </NavDropdown>
 );
 
-const navCollapse = () => (
+const navCollapse = (
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link>Dashboard</Nav.Link>
       <Nav.Link href="/user/guest/all">Guests</Nav.Link>
-      <guestDropdown />
-      <guestListDropdown />
+      {guestDropdown}
+      {guestListDropdown}
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -41,17 +41,21 @@ const navCollapse = () => (
   </Navbar.Collapse>
 );
 
-const navWrap = () => (
-  <Navbar bg="light" expand="lg">
-    <Navbar.Brand>Victor and Kendi's Wedding App</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <navCollapse />
-  </Navbar>
-);
-
 class NavbarComp extends React.Component {
-  state = {};
-  render = () => <navWrap />;
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand>Victor and Kendi&apos;s Wedding App</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        {navCollapse}
+      </Navbar>
+    );
+  }
 }
 
 export default NavbarComp;

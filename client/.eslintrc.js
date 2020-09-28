@@ -1,15 +1,16 @@
+/* eslint-disable comma-dangle */
 module.exports = {
   env: {
     browser: true,
-    // node: true,
+    node: true,
     es2020: true,
   },
   extends: [
-    'eslint:recommended',
+    // 'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    // 'airbnb',
-    // 'airbnb/hooks',
+    'airbnb',
+    'airbnb/hooks',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -20,7 +21,6 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'comma-dangle': ['error', 'always'],
     'react/jsx-filename-extension': [
       1,
       {
@@ -40,7 +40,6 @@ module.exports = {
       flowVersion: '0.53', // Flow version
     },
     propWrapperFunctions: [
-      // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
       'forbidExtraProps',
       { property: 'freeze', object: 'Object' },
       { property: 'myFavoriteWrapper' },

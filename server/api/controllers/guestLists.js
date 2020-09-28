@@ -14,7 +14,12 @@ const updateOne = async (req, res) => {
   res.status(200);
 };
 const updateAll = async (req, res) => {
-  await GuestList.updateMany({}, req.body).then(res.status(200));
+  try {
+    await GuestList.updateMany({}, req.body);
+    res.status(200);
+  } catch (error) {
+    console.error(error);
+  }
 };
 const deleteOne = async (req, res) => {
   const guestList = req.params.id;
