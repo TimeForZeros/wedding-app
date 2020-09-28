@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-const guestAll = () => (
+const guestDropdown = () => (
   <NavDropdown title="Guest" id="basic-nav-dropdown">
     <NavDropdown.Item href="/user/guest/add">Add Guest</NavDropdown.Item>
     <NavDropdown.Item href="/user/guest/udate">Edit Guest</NavDropdown.Item>
@@ -16,7 +16,7 @@ const guestAll = () => (
   </NavDropdown>
 );
 
-const guestList = () => (
+const guestListDropdown = () => (
   <NavDropdown title="Guest List" id="basic-nav-dropdown">
     <NavDropdown.Item> Create List</NavDropdown.Item>
     <NavDropdown.Item>Edit List</NavDropdown.Item>
@@ -31,8 +31,8 @@ const navCollapse = () => (
     <Nav className="mr-auto">
       <Nav.Link>Dashboard</Nav.Link>
       <Nav.Link href="/user/guest/all">Guests</Nav.Link>
-      <guestAll />
-      <guestList />
+      <guestDropdown />
+      <guestListDropdown />
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
