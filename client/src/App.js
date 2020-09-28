@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import NavbarComp from './components/Navbar';
 import Card from 'react-bootstrap/Card';
+import User from './components/User';
 
 import './App.css';
 import ImageCarousel from './components/Carousel';
@@ -19,28 +20,24 @@ const App = () => {
       <Switch>
         <Route path="/home">
           <ImageCarousel />
+          <Dashboard />
         </Route>
-        <Route path="/user/guest">
-          <Card>
-            <Card.Body>
-              <Card.Header>Guest List</Card.Header>
-              <List />
-            </Card.Body>
-          </Card>
+        <Route path="/user">
+          <User />
         </Route>
         <Route path="/user/signup">
-          {/* <Card>
+          <Card>
             <Card.Body>
               <FormSignup />
             </Card.Body>
-          </Card> */}
+          </Card>
           <Card>
             <Card.Body>
               <FormGuest />
             </Card.Body>
           </Card>
         </Route>
-        <Dashboard />
+
         <SignUp />
         <Login />
       </Switch>

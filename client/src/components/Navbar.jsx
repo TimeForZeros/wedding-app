@@ -20,13 +20,13 @@ class NavbarComp extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Dashboard</Nav.Link>
+            <Nav.Link href="/home">Dashboard</Nav.Link>
             <Link to="/user/guest">
               <Nav.Link href="#link">Guests</Nav.Link>
             </Link>
             <NavDropdown title="Guest" id="basic-nav-dropdown">
-              <Link>
-                <NavDropdown.Item href="#action/3.1">
+              <Link to="/user/guest/add">
+                <NavDropdown.Item href="/user/guest/add">
                   Add Guest
                 </NavDropdown.Item>
               </Link>
