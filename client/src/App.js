@@ -5,12 +5,12 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import NavbarComp from './components/Navbar';
 import Card from 'react-bootstrap/Card';
-import User from './components/User';
+import User from './components/User/User';
 
 import './App.css';
 import ImageCarousel from './components/Carousel';
 import { FormSignup, FormGuest } from './components/Form.jsx';
-import List from './components/List';
+import List from './components/User/Guest/List';
 import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
@@ -24,18 +24,6 @@ const App = () => {
         </Route>
         <Route path="/user">
           <User />
-        </Route>
-        <Route path="/user/signup">
-          <Card>
-            <Card.Body>
-              <FormSignup />
-            </Card.Body>
-          </Card>
-          <Card>
-            <Card.Body>
-              <FormGuest />
-            </Card.Body>
-          </Card>
         </Route>
 
         <SignUp />

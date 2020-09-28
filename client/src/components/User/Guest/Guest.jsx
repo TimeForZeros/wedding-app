@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Card from 'react-bootstrap/Card';
 import List from './List';
-import { FormGuest, FormSignup } from './Form';
+import { FormGuest, FormSignup } from '../../Form';
 import { Switch, Route } from 'react-router-dom';
 
 const GuestList = () => (
