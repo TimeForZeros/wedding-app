@@ -10,6 +10,11 @@ const get = async (req, res) => {
     res.status(500);
   }
 };
+const getOne = async (req, res) => {
+  const guest = await Guest.findById(req.params.id);
+  console.log(guest);
+  res.status(200).res.json(guest);
+};
 
 const create = async (req, res) => {
   try {
@@ -43,6 +48,7 @@ const deleteAll = async (req, res) => {
 
 module.exports = {
   get,
+  getOne,
   create,
   deleteAll,
   deleteOne,
